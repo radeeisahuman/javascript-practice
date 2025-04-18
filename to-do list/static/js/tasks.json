@@ -1,0 +1,12 @@
+[
+    {
+        "taskName": "Work",
+        "taskDuration": "8 hours",
+        "taskEffort": "Hard"
+    },
+    {
+        "taskName": "Study",
+        "taskDuration": "2 hours",
+        "taskEffort": "Very Hard"
+    }
+]

@@ -32,7 +32,8 @@ class LinkedList{
 
 }
 
-export class TaskQueue extends LinkedList{
+class TaskQueue extends LinkedList{
+    
     constructor(data){
         super(data);
     }

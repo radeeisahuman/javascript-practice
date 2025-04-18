@@ -7,12 +7,13 @@
 </head>
 <body>
     <h1>A Basic To-Do App</h1>
-
+    <div id="tasks">
         Task: <input id="taskName" type="text">
         Duration: <input id="taskDuration" type="text">
-        Pain: <input name="taskEffort" type="text">
-        <button onclick="showTask()">Add Task</button>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}" type="module"></script>
+        Pain: <input id="taskEffort" type="text">
+        <button id="addTaskButton">Add Task</button>
+    </div>
+    <script src="{{ url_for('static', filename='js/task-queue.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

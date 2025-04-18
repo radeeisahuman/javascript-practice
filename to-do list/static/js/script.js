@@ -1,7 +1,6 @@
-import { TaskQueue } from './task-queue.js';
 
 let object = null;
-
+let taskqueue = null;
 
 fetch('static/js/tasks.json')
     .then(response=>{
@@ -11,7 +10,7 @@ fetch('static/js/tasks.json')
     })
     .then(data=>{
         object = data;
-        showTask();
+        storeTask();
     })
     .catch(error=>{
         console.log('Error fetching file');
@@ -24,10 +23,21 @@ function TaskBuilder(tasks){
         task_queue.enqueue(task);
     });
 
+    task_queue.dequeue();
+
     return task_queue;
 }
 
-function showTask(){
-    let taskqueue = TaskBuilder(object);
+function storeTask(){
+    taskqueue = TaskBuilder(object);
     taskqueue.print();
 }
+
+document.getElementById('addTaskButton').addEventListener('click', ()=>{
+    taskqueue.enqueue({
+        'taskName': document.getElementById('taskName').value,
+        'taskDuration': document.getElementById('taskDuration').value,
+        'taskEffort': document.getElementById('taskEffort').value,
+    });
+    taskqueue.print();
+});
